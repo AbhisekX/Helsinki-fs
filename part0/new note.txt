@@ -1,0 +1,40 @@
+title New Note
+
+note over browser:
+User will give inputs in the text
+input field and press the save button
+and browser will send request to
+the server containing the given data
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over server:
+The server receives the data and
+creates a new note object, and
+adds it to an array called notes
+end note
+
+server-->browser: HTTP Status 302 - Redirect to /notes
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: notes.html
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser:
+Browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{content: "Hola", date: "2022-06-27T22:59:10.862Z"},…]
+
+note over browser:
+Browser executes the event handler
+that renders notes to display
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+server-->browser: favicon.ico
