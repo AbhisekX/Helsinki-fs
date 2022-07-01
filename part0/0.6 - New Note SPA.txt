@@ -1,0 +1,27 @@
+title New Note SPA
+
+note over browser:
+User will give inputs in the text
+input field and press the save button
+end note
+
+note over browser:
+Browser will prevent the default
+handling of form data as per spa.js.
+It will create json containing
+the input data and date and push it in
+the notes array. Then it will redraw
+the notes and send request to the
+server containing the given json data
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over server:
+The server receives the data and
+creates a new note object, and
+adds it to an array called notes
+end note
+
+server-->browser: HTTP Status Code 201
+server-->browser: {"message": "note created"}
